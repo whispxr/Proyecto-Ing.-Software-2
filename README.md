@@ -1,2 +1,3 @@
-# Proyecto-Ing.-Software-2
-Repositorio para registrar progreso y participacion en proyecto semestral
+# Finis Trabaja
+
+Repositorio para registrar progreso y participación en proyecto semestral de Ingeniería de Software 2.
