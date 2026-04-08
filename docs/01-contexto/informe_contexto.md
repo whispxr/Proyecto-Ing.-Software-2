@@ -7,3 +7,6 @@ Frente a esta problemática, la Dirección de Vinculación con el Medio ha solic
 Esta plataforma tiene como propósito servir de punto de encuentro entre dos mundos que actualmente tienen dificultades para comunicarse:
 * **Oferentes:** Empresas externas y áreas internas de la universidad que requieren incorporar estudiantes a sus equipos de trabajo.
 * **Postulantes:** Estudiantes que se encuentran en la búsqueda de oportunidades laborales que se ajusten a su perfil académico y a sus expectativas profesionales.
+
+
+Propuesta de la solución
