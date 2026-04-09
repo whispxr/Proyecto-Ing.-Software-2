@@ -17,4 +17,5 @@ Se propone el diseño y desarrollo de Finis Trabaja, una plataforma web centrali
 
 La solución consistirá en un sistema digital que integre en un solo entorno la gestión de perfiles profesionales (CVV), la publicación de ofertas laborales y un motor de recomendación inteligente. Este sistema permitirá automatizar el proceso de emparejamiento entre candidatos y vacantes, mejorando la eficiencia, precisión y rapidez en la toma de decisiones. Cabe resaltar que la plataforma se desarrollará bajo una arquitectura escalable, basada en estándares como IEEE 29148 para la definición de requisitos, asegurando trazabilidad desde las necesidades del negocio hasta su implementación. Se incorporarán mecanismos de seguridad para la protección de datos personales.
 
-Finalmente, la solución será validada mediante pruebas funcionales, de rendimiento y seguridad, garantizando su viabilidad técnica y operativa antes de su implementación final.
+Finalmente, la solución será validada mediante pruebas funcionales, de rendimiento y seguridad, con el fin de verificar el funcionamiento del sistema, su capacidad de respuesta y la protección de los datos, garantizando así su viabilidad técnica y operativa antes de su implementación final.
+
