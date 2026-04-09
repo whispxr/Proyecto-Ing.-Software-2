@@ -11,8 +11,6 @@ Esta plataforma tiene como propósito servir de punto de encuentro entre dos mun
 
 ## Propuesta de la solución
 
-idea: Creación de una plataforma web que conecta a estudiantes y empleadores mediante perfiles y recomendaciones automáticas.
-
 Se propone el diseño y desarrollo de Finis Trabaja, una plataforma web centralizada que permita modernizar el proceso de vinculación laboral entre estudiantes, egresados y entidades empleadoras de la Universidad Finis Terrae.
 
 La solución consistirá en un sistema digital que integre en un solo entorno la gestión de perfiles profesionales (CVV), la publicación de ofertas laborales y un motor de recomendación inteligente. Este sistema permitirá automatizar el proceso de emparejamiento entre candidatos y vacantes, mejorando la eficiencia, precisión y rapidez en la toma de decisiones. Cabe resaltar que la plataforma se desarrollará bajo una arquitectura escalable, basada en estándares como IEEE 29148 para la definición de requisitos, asegurando trazabilidad desde las necesidades del negocio hasta su implementación. Se incorporarán mecanismos de seguridad para la protección de datos personales.
