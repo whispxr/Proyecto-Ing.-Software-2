@@ -10,15 +10,15 @@ Repositorio para registrar progreso y participación en proyecto semestral de In
 
 ### Contexto Operacional
 
-En la universidad Finis Terrae, el vínculo entre lo alumnos y las vacantes laborales se gestiona a través de medios informales y poco estructurados, como correos masivos, carteles en el campus o grupos de mensajería. Si bien estos canales ayudan a difundir información, no garantizan que las ofertas lleguen a tienmpo ni que logren llegar especificamente a los estudiantes que cumplen con el perfil buscado.
+En la universidad Finis Terrae, el vínculo entre lo alumnos y las vacantes laborales se gestiona a través de medios informales y poco estructurados, como correos masivos, carteles en el campus o grupos de mensajería. Si bien estos canales ayudan a difundir información, no garantizan que las ofertas lleguen a tiempo ni que logren llegar específicamente a los estudiantes que cumplen con el perfil buscado.
 
-Esta situación perjudica tanto a estudiantes como empresas y departamentos de la universidad. Por una parte, los alumnos deben navegar por multiples fuentes para encontrar una oportunidad, lo que consume mucho tiempo y los expone a datos irrelevntes o desactualizados. Además, las empresas tienen dificultades para contactar a los candidatos idóneos, lo que resta efectividad a sus busquedas.
+Esta situación perjudica tanto a estudiantes como empresas y departamentos de la universidad. Por una parte, los alumnos deben navegar por múltiples fuentes para encontrar una oportunidad, lo que consume mucho tiempo y los expone a datos irrelevantes o desactualizados. Además, las empresas tienen dificultades para contactar a los candidatos idóneos, lo que resta efectividad a sus búsquedas.
 
-Las principales consecuencias de esto implica que los estudiantes corran el riesgo de perder ofertas valiosas y enfrenten procesos de busquedas poco productivas. La universidad ve limitada su capacidad para impulsar la empleabilidad, mientras que las empresas deben invertir más recursos en reclutamiento sin asegurar resultados óptimo. Esto se traduce en una perdida de tiempo y efincienci para todos los involucrados.
+Las principales consecuencias de esto implica que los estudiantes corran el riesgo de perder ofertas valiosas y enfrenten procesos de búsquedas poco productivas. La universidad ve limitada su capacidad para impulsar la empleabilidad, mientras que las empresas deben invertir más recursos en reclutamiento sin asegurar resultados óptimo. Esto se traduce en una perdida de tiempo y eficiencia para todos los involucrados.
 
 ### Problema a solucionar
 
-El proposito del sistema es abotdar la falta de organización y eficiencia en el proceso de conexión entre estudiantes y oportunidades laborales dentro de la universidad. Actualmente, la información se encuentra dispersa y no existen herramientas que permitan gestionarla de manera estructurada ni facilitar su acceso según los intereses y perfiles de los usuarios.
+El propósito del sistema es abordar la falta de organización y eficiencia en el proceso de conexión entre estudiantes y oportunidades laborales dentro de la universidad. Actualmente, la información se encuentra dispersa y no existen herramientas que permitan gestionarla de manera estructurada ni facilitar su acceso según los intereses y perfiles de los usuarios.
 
 En este contexto, se identifica la necesidad de contar con un sistema que permita centralizar y ordenar la información de las ofertas laborales, incorporando datos claros como el cargo, funciones, requisitos, modalidad de trabajo y rango de remuneración. Asimismo, se requiere que los estudiantes puedan crear perfiles mas completos, donde incluyan su formación, intereses, habilidades y disponibilidad, manteniendo además control sobre visibilidad de su información personal.
 
