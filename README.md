@@ -9,12 +9,20 @@ Repositorio para registrar progreso y participación en proyecto semestral de In
 
 
 ### Contexto Operacional
-Actualmente, la vinculación entre los alumnos de la Universidad Finis Terrae y el mercado laboral se realiza mediante canales de comunicación informales y poco efectivos, como correos electrónicos masivos, carteles físicos y aplicaciones de mensajería. Este enfoque no asegura que las ofertas lleguen a los perfiles indicados, lo que se traduce en un sistema ineficiente. Como consecuencia, existe una barrera de comunicación entre las organizaciones que buscan talento y los alumnos que buscan insertarse profesionalmente, limitando sus oportunidades de desarrollo.
+
+En la universidad Finis Terrae, el vínculo entre lo alumnos y las vacantes laborales se gestiona a través de medios informales y poco estructurados, como correos masivos, carteles en el campus o grupos de mensajería. Si bien estos canales ayudan a difundir información, no garantizan que las ofertas lleguen a tienmpo ni que logren llegar especificamente a los estudiantes que cumplen con el perfil buscado.
+
+Esta situación perjudica tanto a estudiantes como empresas y departamentos de la universidad. Por una parte, los alumnos deben navegar por multiples fuentes para encontrar una oportunidad, lo que consume mucho tiempo y los expone a datos irrelevntes o desactualizados. Además, las empresas tienen dificultades para contactar a los candidatos idóneos, lo que resta efectividad a sus busquedas.
+
+Las principales consecuencias de esto implica que los estudiantes corran el riesgo de perder ofertas valiosas y enfrenten procesos de busquedas poco productivas. La universidad ve limitada su capacidad para impulsar la empleabilidad, mientras que las empresas deben invertir más recursos en reclutamiento sin asegurar resultados óptimo. Esto se traduce en una perdida de tiempo y efincienci para todos los involucrados.
 
 ### Propósito del Sistema
-El objetivo central es superar las deficiencias comunicacionales actuales mediante la construcción de "Finis Trabaja", una plataforma centralizada. Este sistema brindará a las empresas y unidades internas una herramienta estructurada para difundir sus vacantes de manera detallada. Paralelamente, permitirá a los alumnos exponer sus habilidades e intereses a través de un perfil digital. La principal innovación que se implementará será un algoritmo de emparejamiento que analizará automáticamente la compatibilidad entre los requerimientos del cargo y los datos del estudiante, facilitando un proceso de selección mucho más preciso. En síntesis, se desarrollará un portal de empleabilidad que automatice la conexión entre la oferta y la demanda laboral universitaria.
 
+El proposito del sistema es abotdar la falta de organización y eficiencia en el proceso de conexión entre estudiantes y oportunidades laborales dentro de la universidad. Actualmente, la información se encuentra dispersa y no existen herramientas que permitan gestionarla de manera estructurada ni facilitar su acceso según los intereses y perfiles de los usuarios.
 
+En este contexto, se identifica la necesidad de contar con un sistema que permita centralizar y ordenar la información de las ofertas laborales, incorporando datos claros como el cargo, funciones, requisitos, modalidad de trabajo y rango de remuneración. Asimismo, se requiere que los estudiantes puedan crear perfiles mas completos, donde incluyan su formación, intereses, habilidades y disponibilidad, manteniendo además control sobre visibilidad de su información personal.
+
+El sistema también debe facilitar la búsqueda y filtrado de ofertas, de manera que los estudiantes puedan acceder rápidamente a aquellas que sean relevantes para su perfil. A su vez, se espera mejorar la relación entre las características de las ofertas y los perfiles de los estudiantes, favoreciendo una mayor coherencia en el proceso de vinculación. 
 
 ### Objetivo general
 Desarrollar e implementar una plataforma web centralizada **(Finis Trabaja)**, para modernizar y optimizar el proceso de vinculación laboral en la Universidad Finis Terrae, facilitando el encuentro eficiente entre las necesidades de las entidades empleadoras y las expectativas profesionales de los estudiantes, mediante la gestión de perfiles estructurados y un motor de recomendación algorítmica.
