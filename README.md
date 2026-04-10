@@ -16,7 +16,7 @@ Esta situación perjudica tanto a estudiantes como empresas y departamentos de l
 
 Las principales consecuencias de esto implica que los estudiantes corran el riesgo de perder ofertas valiosas y enfrenten procesos de busquedas poco productivas. La universidad ve limitada su capacidad para impulsar la empleabilidad, mientras que las empresas deben invertir más recursos en reclutamiento sin asegurar resultados óptimo. Esto se traduce en una perdida de tiempo y efincienci para todos los involucrados.
 
-### Propósito del Sistema
+### Problema a solucionar
 
 El proposito del sistema es abotdar la falta de organización y eficiencia en el proceso de conexión entre estudiantes y oportunidades laborales dentro de la universidad. Actualmente, la información se encuentra dispersa y no existen herramientas que permitan gestionarla de manera estructurada ni facilitar su acceso según los intereses y perfiles de los usuarios.
 
