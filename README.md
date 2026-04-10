@@ -83,7 +83,10 @@ El sistema de matching de ***Tasky*** no solo analiza el "perfil" (como LinkedIn
 * **Geolocalización (Location-Based Matching):** Prioriza la cercanía física entre el oferente y el demandante para optimizar tiempos de respuesta.
 * **Sistema de Reputación Bilateral:** El emparejamiento está fuertemente influenciado por el "rating" y los comentarios. Los algoritmos de ranking posicionan mejor a los usuarios con mayores tasas de finalización de tareas y mejores reseñas.
 * **Matching Basado en Disponibilidad Real:** A diferencia de un portal de empleo donde la vacante puede estar abierta semanas, ***Tasky*** utiliza un sistema de "disponibilidad inmediata", similar a lo que tu proyecto podría requerir para trabajos part-time o de apoyo en eventos universitarios.
-  
+
+#### Micro-segmentación de Habilidades
+***Tasky*** utiliza etiquetas de habilidades muy específicas (ej: "montaje de stands", "transcripción de textos", "soporte técnico básico"). Esto permite un emparejamiento de alta precisión para tareas que no requieren un título profesional completo, sino una competencia técnica puntual.
+
 ---
 
 ### Referencias
@@ -93,5 +96,3 @@ El sistema de matching de ***Tasky*** no solo analiza el "perfil" (como LinkedIn
 * **FirstJob Research. (2024).** *Employers for Youth (EFY) Chile: Tendencias en la contratación de talento joven*. [https://www.efy.global/](https://www.efy.global/)
 * **De Stefano, V. (2016).** *The rise of the "just-in-time workforce": On-demand work, crowdwork, and labor protection in the "gig-economy"*. International Labour Office. [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2682602](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2682602)
 
-#### Micro-segmentación de Habilidades
-***Tasky*** utiliza etiquetas de habilidades muy específicas (ej: "montaje de stands", "transcripción de textos", "soporte técnico básico"). Esto permite un emparejamiento de alta precisión para tareas que no requieren un título profesional completo, sino una competencia técnica puntual.
