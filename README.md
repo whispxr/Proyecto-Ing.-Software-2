@@ -57,7 +57,6 @@ A diferencia de los portales de empleo tradicionales, ***LinkedIn*** aprovecha e
 #### El Rol de la Retroalimentación (Implicit Feedback)
 El sistema de emparejamiento aprende constantemente de las interacciones. Si un usuario ignora ciertas recomendaciones o hace clic en otras, el algoritmo ajusta el peso de variables como el sueldo pretencioso, la ubicación geográfica y la modalidad de trabajo (presencial/remoto), optimizando las futuras sugerencias en tiempo real.
 
----
 
 ### FirstJob
 ***FirstJob*** es una plataforma de tecnología de recursos humanos (HR Tech) nacida en Chile, líder en Latinoamérica en la conexión entre estudiantes de educación superior y el mundo laboral. Su enfoque principal es eliminar las barreras de entrada para quienes no poseen experiencia previa.
@@ -71,7 +70,6 @@ A diferencia de los sistemas tradicionales que priorizan la experiencia laboral 
 #### Employer Branding y Validación de Empresas
 ***FirstJob*** integra un componente de reputación corporativa (como el ranking *Employers for Youth*). En términos teóricos, la plataforma actúa como un filtro de calidad para asegurar que las ofertas sean seguras y formativas para los estudiantes.
 
----
 
 ### Tasky
 
