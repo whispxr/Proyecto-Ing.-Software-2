@@ -12,12 +12,13 @@ PENDITENTES
 
 ###  Fase 3: Arquitectura y Diagramas UML (Sección 4)
 * [ ] **Diagrama de Casos de Uso (Nivel 0):** Modelar el diagrama e incluir una descripción breve de los actores, los casos de uso y las relaciones principales.
-* [ ] **Diagrama de Clases:** Diseñar la estructura lógica detallando atributos, métodos y relaciones, añadiendo una justificación de las decisiones tomadas.
+* [x] **Diagrama de Clases:** Diseñar la estructura lógica detallando atributos, métodos y relaciones, añadiendo una justificación de las decisiones tomadas.
 * [ ] **Diagrama de Componentes:** Trazar los subsistemas e interfaces (estructura de desarrollo), justificando el diseño.
 * [ ] **Diagrama de Despliegue:** Modelar la estructura física y los componentes lógicos que alberga, con su respectiva justificación.
 * [ ] **Exportación en alta calidad:** Generar los diagramas en PDF (A3) o en formato PNG de alta resolución (mínimo 1366x768) para garantizar que sean legibles y no perder puntaje.
-* [ ] **Firma obligatoria:** Insertar en alguna parte visible de los diagramas una nota con los nombres, apellidos y RUT de los autores. Asegúrate de incluir explícitamente tu nombre, Miguel Angel Obanos Gonzalez, junto con los datos de tus compañeros.
-* [ ] **Justificación de la Arquitectura:** Redactar la justificación de la arquitectura escogida. Resultará estratégico proponer y justificar el stack MERN (MongoDB, Express, React, Node.js) junto con TypeScript. **Precaución:** La arquitectura que definan y justifiquen en esta sección será obligatoria para la construcción del software en el Hito 3.
+* [ ] **Firma obligatoria:** Insertar en alguna parte visible de los diagramas una nota con los nombres, apellidos y RUT de los autores.
+* [ ] **Justificación de la Arquitectura:** Redactar la justificación de la arquitectura escogida.
+ **Precaución:** La arquitectura que definan y justifiquen en esta sección será obligatoria para la construcción del software en el Hito 3.
 
 ###  Fase 4: Factibilidad y Planificación (Sección 5)
 * [ ] **Estudio de Puntos de Función:** Realizar el análisis considerando únicamente los factores de ajuste ambiental, con cada ítem en negrita y claramente definido.
