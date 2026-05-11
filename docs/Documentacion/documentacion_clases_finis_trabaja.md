@@ -1,118 +1,98 @@
-# Documentación Técnica del Modelo de Clases: "Finis Trabaja"
+# Documentación Técnica del Modelo de Clases: Proyecto "Finis Trabaja"
 
-## 1. Contexto y Arquitectura Base
-El presente documento detalla la estructura orientada a objetos del sistema **Finis Trabaja**. La arquitectura está diseñada para ser implementada en Java, utilizando fuertemente los principios de herencia (para los roles de usuario), polimorfismo (mediante interfaces para búsquedas y recomendaciones), y clases asociativas (para el manejo de postulaciones).
-
----
-
-## 2. Interfaces (Contratos de Comportamiento)
-
-### `<<Interface>> IFiltrable`
-Define el contrato para cualquier entidad que deba ser sometida al motor de búsqueda del sistema.
-* **Métodos:**
-  * `+ boolean cumpleFiltros(Map<String, String> criteriosBusqueda)`: Recibe un mapa clave-valor con los filtros (ej. "jornada" -> "Part-time", "carrera" -> "Informática"). La clase que lo implemente debe iterar sobre estos criterios y retornar `true` solo si sus atributos coinciden con todos los filtros exigidos.
-
-### `<<Interface>> IRecomendable`
-Establece la capacidad de una entidad para ser procesada por el algoritmo de "Match" o recomendación.
-* **Métodos:**
-  * `+ double calcularIndiceCompatibilidad(CVV perfilEstudiante)`: Contiene la lógica matemática/condicional. Compara los atributos internos de la clase que lo implementa contra los atributos del `CVV` entregado por parámetro, retornando un valor entre 0.0 y 100.0 (porcentaje de compatibilidad).
+Esta documentación detalla la lógica, el propósito y las interconexiones de las clases diseñadas para el sistema de vinculación laboral de la Universidad Finis Terrae.
 
 ---
 
-## 3. Clases Base y Tipos de Usuario
-
-### `<<Abstract Class>> Usuario`
-Superclase que centraliza la lógica de autenticación y datos básicos de cualquier individuo o entidad que ingrese al sistema.
-* **Atributos:**
-  * `- String idUsuario`: Identificador único (UUID o Primary Key de base de datos).
-  * `- String correo`: Credencial principal de acceso. Debe validarse formato.
-  * `- String contrasena`: Hash de seguridad (no guardar en texto plano).
-  * `- Date fechaRegistro`: Timestamp de la creación de la cuenta.
-* **Métodos:**
-  * `+ boolean iniciarSesion(String correoIngresado, String contrasenaIngresada)`: Valida las credenciales contra la base de datos.
-  * `+ void cerrarSesion()`: Destruye el token o sesión activa.
-  * `+ abstract void accederDashboard()`: Método abstracto puro. Obliga a las clases hijas a definir a qué pantalla/módulo son redirigidos tras un login exitoso.
-
-### `Estudiante (extends Usuario)`
-* **Atributos:**
-  * `- String rut`: Identificador nacional.
-  * `- String nombre` / `- String apellidos`
-  * `- CVV perfilProfesional`: Composición (1:1). Instancia exclusiva del currículum de este estudiante.
-* **Métodos:**
-  * `+ void postular(OfertaLaboral oferta, String cartaPresentacion)`: Instancia un nuevo objeto de la clase asociativa `Postulacion`, vinculando este objeto `Estudiante` (this) con la `oferta` recibida.
-  * `+ void crearCVV(CVV datosNuevos)`: Inicializa y asigna el objeto `CVV` al estudiante.
-  * `@Override + void accederDashboard()`: Carga la vista de buscador de ofertas.
-
-### `Empleador (extends Usuario)`
-* **Atributos:**
-  * `- String rutEmpresa`: Identificador tributario o interno de la universidad.
-  * `- String razonSocial` / `- String descripcionInstitucional`
-  * `- boolean estaValidadoPorAdmin`: Bandera de seguridad. Por defecto es `false`. Si es `false`, el sistema debe bloquear el uso de `publicarOferta()`.
-* **Métodos:**
-  * `+ void publicarOferta(OfertaLaboral nuevaOferta)`: Agrega la oferta a la base de datos vinculándola a este empleador (Composición 1:N).
-  * `+ List<Postulacion> verPostulantes(OfertaLaboral oferta)`: Consulta a la base de datos por todas las instancias de `Postulacion` asociadas a esa oferta específica.
-  * `+ ArchivoAdjunto descargarCVV(Estudiante postulante)`: Accede a los archivos adjuntos dentro del `CVV` del postulante.
-
-### `Administrador (extends Usuario)`
-* **Métodos:**
-  * `+ void validarEmpleador(Empleador empleadorPendiente)`: Cambia la bandera `estaValidadoPorAdmin` a `true` en el objeto Empleador.
-  * `+ void habilitarRecomendacionesParaEmpresa(OfertaLaboral oferta, boolean acceso)`: Permite al admin decidir si una empresa externa puede ver el listado generado por el `MotorDeRecomendacion`.
+## 1. Contexto del Sistema
+El modelo está diseñado para resolver la desorganización en la comunicación de vacantes laborales. Funciona como un ecosistema donde la **demanda** (empresas y departamentos de la universidad) y la **oferta** (estudiantes) se encuentran mediante un **Motor de Recomendación**. La arquitectura prioriza la seguridad de los datos, la escalabilidad mediante interfaces y la claridad en los roles de usuario.
 
 ---
 
-## 4. Entidades del Dominio (Datos Estructurales)
+## 2. Contratos de Comportamiento (Interfaces)
 
-### `CVV (implements IFiltrable)`
-* **Atributos:**
-  * Colecciones (`List<String>`): `especialidades`, `rolesDeInteres`, `experienciasLaborales`, `logrosAcademicos`. Estructuras de datos para almacenar múltiples etiquetas.
-  * `- int pretensionSueldoMinima`: Valor numérico para cruce matemático.
-  * `- String disponibilidadJornada` / `- String preferenciaModalidad`: Variables categóricas.
-  * `- List<ArchivoAdjunto> archivosAdicionales`: Agregación (1:N). Punteros a los archivos en el servidor.
-  * `- String nivelDeVisibilidad`: Control de acceso (Ej: "EMPRESAS", "SOLO_FINIS").
-* **Métodos:**
-  * `+ void actualizarDatos(CVV datosModificados)`: Sobrescribe los atributos actuales con los del objeto recibido.
-  * `@Override + boolean cumpleFiltros(Map<String, String> criterios)`: Implementación de la interfaz para buscar estudiantes desde el panel de admin.
+### `IFiltrable`
+* **Propósito:** Define un estándar para que cualquier entidad pueda ser buscada mediante criterios específicos.
+* **Relaciones:** Implementada por `CVV` y `OfertaLaboral`.
+* **Variables de método:** * `Map<String, String> criteriosBusqueda`: Un diccionario de filtros (ej: "Sueldo" -> "500.000") que permite al sistema evaluar si el objeto cumple con lo solicitado por el usuario.
 
-### `OfertaLaboral (implements IFiltrable, IRecomendable)`
+### `IRecomendable`
+* **Propósito:** Permite que una entidad sea evaluada numéricamente por el algoritmo de emparejamiento.
+* **Relaciones:** Implementada por `OfertaLaboral`.
+* **Lógica:** Compara los requisitos técnicos de una vacante contra los datos de un perfil estudiantil.
+
+---
+
+## 3. Gestión de Identidad (Herencia de Usuarios)
+
+### `Usuario` (Clase Abstracta)
+* **Propósito:** Actúa como la plantilla base para cualquier persona que acceda al sistema. Centraliza la seguridad y los datos de acceso.
 * **Atributos:**
-  * Datos descriptivos: `tituloCargo`, `descripcionDetallada`, `funcionesAsociadas`, `ubicacionFisica`.
-  * `- List<String> carrerasDirigidas`: Colección de carreras válidas para el puesto.
-  * Rango salarial: `- int sueldoMinimo`, `- int sueldoMaximo`.
-  * `- boolean estadoActivo`: Si es `false`, la oferta ya no aparece en las búsquedas ni acepta postulaciones.
-  * `- List<ArchivoAdjunto> materialAdjunto`: Agregación (1:N) de archivos corporativos.
-* **Métodos:**
-  * `@Override + double calcularIndiceCompatibilidad(CVV perfilEstudiante)`: Algoritmo central. Compara sus requisitos (`carrerasDirigidas`, `sueldoMinimo`, `tipoJornada`) contra los atributos del `perfilEstudiante`.
+    * `idUsuario`: Identificador único interno para la base de datos.
+    * `correo`: Email institucional o corporativo; actúa como nombre de usuario.
+    * `contrasena`: Almacena el hash de seguridad para la validación.
+    * `fechaRegistro`: Fecha automática en la que se creó la cuenta.
+
+### `Estudiante`
+* **Contexto:** Representa al alumno que busca empleo o prácticas.
+* **Atributos:**
+    * `rut`, `nombre`, `apellidos`: Datos de identificación personal.
+    * `perfilProfesional`: Instancia vinculada de la clase `CVV`.
+* **Relación:** **Composición (1:1)** con `CVV`. Si el estudiante desaparece, su currículum también.
+
+### `Empleador`
+* **Contexto:** Representa al reclutador. Puede ser un "Headhunter" externo o un encargado de departamento dentro de la UFT.
+* **Atributos:**
+    * `rutEmpresa`: RUT comercial para externos o identificador interno para la universidad.
+    * `razonSocial`: Nombre legal de la empresa o nombre del área (ej: "Biblioteca UFT").
+    * `estadoCuenta`: Almacena el estado administrativo (`PENDIENTE`, `APROBADA`, `RECHAZADA`).
+    * `esInterno`: Booleano crítico para omitir requisitos tributarios en departamentos universitarios.
+* **Relación:** **Asociación (1:N)** con `OfertaLaboral`. Un empleador puede gestionar múltiples vacantes.
+
+### `Administrador`
+* **Contexto:** Personal de Vinculación con el Medio que supervisa la plataforma.
+* **Lógica:** No posee atributos de dominio, sino métodos de control para validar a los empleadores y supervisar el sistema.
+
+---
+
+## 4. Estructuras de Datos y Dominio
+
+### `CVV` (Currículum Vitae Virtual)
+* **Contexto:** Es el corazón de la información del alumno. No es un documento estático, sino una entidad de datos para el motor de búsqueda.
+* **Atributos:**
+    * `especialidades`, `rolesDeInteres`: Listas de etiquetas para el motor de recomendación.
+    * `pretensionSueldoMinima`: Número entero usado para filtrar ofertas por debajo de la expectativa del alumno.
+    * `disponibilidadJornada`, `preferenciaModalidad`: Categorías para el cruce de datos (Remoto, Presencial, etc.).
+    * `nivelDeVisibilidad`: Define si el perfil es público, solo para la universidad o privado.
+
+### `OfertaLaboral`
+* **Contexto:** Especificación de la vacante publicada.
+* **Atributos:**
+    * `tituloCargo`, `descripcionDetallada`, `funcionesAsociadas`: Textos informativos para el postulante.
+    * `carrerasDirigidas`: Lista de títulos que pueden postular.
+    * `sueldoMinimo`, `sueldoMaximo`: Rango económico para evaluar la afinidad con el estudiante.
+    * `estadoActivo`: Booleano para ocultar ofertas cerradas.
 
 ### `ArchivoAdjunto`
-* **Atributos:**
-  * `- String rutaServidor`: Path real donde está guardado el archivo (Ej: `/var/www/uploads/cv.pdf` o una URL de un bucket de AWS/Supabase).
-  * `- String tipoMime`: Extensión validada para renderizado web (Ej: `application/pdf`, `image/png`).
+* **Propósito:** Maneja la ubicación física de documentos (PDFs, imágenes corporativas).
+* **Variables:** * `rutaServidor`: Ruta donde reside el archivo.
+    * `tipoMime`: Formato para saber si es una imagen o un documento al abrirlo.
 
 ---
 
-## 5. Clases Transaccionales y de Asociación
+## 5. Lógica Transaccional y de Recomendación
 
 ### `Postulacion` (Clase Asociativa)
-Esta clase existe como consecuencia de la asociación (N:N) entre `Estudiante` y `OfertaLaboral`. Evita la redundancia de datos y permite guardar información específica del instante en que se hizo el vínculo.
-* **Atributos:**
-  * `- Estudiante candidato`: Referencia al estudiante que aplica.
-  * `- OfertaLaboral vacante`: Referencia a la oferta aplicada.
-  * `- Date fechaEnvio`: Timestamp exacto de la postulación.
-  * `- String cartaPresentacion`: Texto opcional digitado al momento de postular.
-  * `- String estadoProceso`: Máquina de estados (Ej: "RECIBIDA", "EN_REVISION", "ACEPTADA", "DESCARTADA").
-* **Métodos:**
-  * `+ void actualizarEstado(String nuevoEstado)`: Modifica el `estadoProceso`.
+* **Relación:** Une a un `Estudiante` con una `OfertaLaboral`. 
+* **Atributos:** * `fechaEnvio`: Registro de cuándo se aplicó.
+    * `estadoProceso`: Rastrea el progreso del candidato (`RECIBIDA`, `REVISADA`, `FINALIZADA`).
+    * `cartaPresentacion`: Texto personalizado enviado por el estudiante para esa vacante específica.
 
 ### `MotorDeRecomendacion`
-Componente de servicio (Singleton o clase utilitaria) encargado de procesar la lógica de negocio pesada.
-* **Atributos:**
-  * `- List<Estudiante> cacheEstudiantesRevisados`: Memoria temporal para no re-consultar a la BD constantemente durante el procesamiento.
-* **Métodos:**
-  * `+ List<Recomendacion> procesarOferta(OfertaLaboral oferta)`: Obtiene a todos los estudiantes de la BD (o cache). Itera sobre ellos llamando a `oferta.calcularIndiceCompatibilidad(estudiante.getCVV())`. Si el índice supera un umbral mínimo, instancia un objeto `Recomendacion` y lo añade a la lista de retorno.
+* **Contexto:** Clase de servicio que ejecuta el algoritmo. No guarda datos permanentes, solo procesa información.
+* **Relación:** Toma una `OfertaLaboral`, consulta la lista de estudiantes y genera objetos de tipo `Recomendacion`.
 
 ### `Recomendacion`
-Representa el resultado final del cruce. Es una foto del nivel de compatibilidad en un momento dado.
-* **Atributos:**
-  * `- Estudiante estudianteSugerido` / `- OfertaLaboral ofertaAnalizada`
-  * `- double porcentajeMatch`: El valor numérico final del cálculo.
-  * `- Date fechaCalculo`: Cuándo se generó este cruce.
+* **Propósito:** Es el resultado tangible del algoritmo. 
+* **Atributos:** * `porcentajeMatch`: El número final de compatibilidad (ej: 85.5%).
+    * `estudianteSugerido` / `ofertaAnalizada`: Punteros a las entidades originales que se compararon.
